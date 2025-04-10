@@ -1,0 +1,11 @@
+
+
+
+
+
+crear una base de datos MYSQL desde phpmyadmin
+verificar el archivo .env renombrar el archivo .env.example
+
+composer install
+
+php artisan serve
