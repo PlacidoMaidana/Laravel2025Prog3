@@ -1,6 +1,10 @@
 
 
 
+POO EL VIDEO DE LA CLASE ANTERIOR 03-04-2025 
+
+https://utn.zoom.us/rec/share/_F1Bf9rFP-2JVYCmtZ5iS0skFWXpUDY6D-STum897RrWHWt2fOfqFJe3Rd6vYpNN.yr67yGjIdh0oCa8v
+Contraseña: 5p.$Z8?k
 
 # ✅ **Lista de 20 Prácticos para Afianzar Laravel Básico**
 

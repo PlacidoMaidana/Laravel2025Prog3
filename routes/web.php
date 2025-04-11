@@ -25,4 +25,4 @@ Route::get('/vista2/{nombre}', function ($nombre) {
 
 
 
-Route::get('/vista3/{nombre}', [App\Http\Controllers\tablasController::class, 'index']);
+Route::get('/vista3/{edad}', [App\Http\Controllers\tablasController::class, 'index']);

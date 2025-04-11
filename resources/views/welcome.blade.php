@@ -101,6 +101,24 @@
                     </div>
                 </div>
 
+                <div>
+                    <ul>
+                        <!-- Enlace a la página de bienvenida -->
+                        <li><a href="{{ url('/') }}">Página de bienvenida</a></li>
+                    
+                        <!-- Enlace a la nueva vista -->
+                        <li><a href="{{ url('/nueva') }}">Nueva vista</a></li>
+                    
+                        <!-- Enlace dinámico a vista2 con parámetro nombre -->
+                        <li><a href="{{ url('/vista2/Juan') }}">Vista 2 (nombre: Juan)</a></li>
+                        <!-- Enlace dinámico a vista2 con parámetro nombre -->
+                        <li><a href="{{ url('/vista3/14') }}">Mayoria de edad</a></li>
+                    
+                      
+                    </ul>
+
+                </div>
+
                 <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
                     <div class="text-center text-sm text-gray-500 sm:text-left">
                         <div class="flex items-center">

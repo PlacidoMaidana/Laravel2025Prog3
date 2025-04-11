@@ -8,12 +8,15 @@ class tablasController extends Controller
 {
     //
 
-    public function index($nombre) {
+    public function index($edad) {
 
-        $nombre="Maria";
+        if ($edad>=18) {
+            return view('mayoria_de_edad.bienVenido',['edad'=>$edad]);
+        } else {
+            return view('mayoria_de_edad.esMenor',['edad'=>$edad]);
+        }
+        
 
-
-        return view('vista2',['nombre'=>$nombre]);
     }
 
 }
