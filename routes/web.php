@@ -22,3 +22,7 @@ Route::get('/nueva', function () {
 Route::get('/vista2/{nombre}', function ($nombre) {
     return view('vista2',['nombre'=>$nombre]);
 });
+
+
+
+Route::get('/vista3/{edad}', [App\Http\Controllers\tablasController::class, 'index']);
