@@ -17,7 +17,6 @@ class LibroController extends Controller
     {
         // $libros = Libro::all();
         $libros = DB::table('libros')->get();
-
         return response()->json($libros);
     }
 
@@ -25,7 +24,7 @@ class LibroController extends Controller
     public function show($id)
     {
         // $libro = Libro::find($id);
-        $libro = DB::table('libros')->where('ISBN', $id)->first();
+        $libro = DB::table('libros')->where('id', $id)->first();
         if (!$libro) {
             return response()->json(['message' => 'Libro no encontrado'], 404);
         }
@@ -36,7 +35,7 @@ class LibroController extends Controller
      public function actualizarCantidad(Request $request)
          {
          $validator = Validator::make($request->all(), [
-         'ISBN' => 'required',
+         'id' => 'required',
          'CantidadDisponible' => 'required|integer|min:0',
          ]);
         
@@ -44,18 +43,18 @@ class LibroController extends Controller
          return response()->json(['errors' => $validator->errors()], 400);
          }
         
-         $isbn = $request->input('ISBN');
-         $libro = DB::table('libros')->where('ISBN', $isbn)->first(); 
+         $isbn = $request->input('id');
+         $libro = DB::table('libros')->where('id', $isbn)->first(); 
         
          if (!$libro) {
          return response()->json(['message' => 'Libro no encontrado'], 404);
          }
         
          DB::table('libros')
-         ->where('ISBN', $isbn)
+         ->where('id', $isbn)
          ->update(['CantidadDisponible' => $request->input('CantidadDisponible')]);
        
-         $libroActualizado = DB::table('libros')->where('ISBN', $isbn)->first(); // Obtener el libro actualizado
+         $libroActualizado = DB::table('libros')->where('id', $isbn)->first(); // Obtener el libro actualizado
        
         return response()->json($libroActualizado, 200);
         
@@ -64,13 +63,13 @@ class LibroController extends Controller
 
          public function eliminarLibro(Request $request, $isbn)
          {
-         $libro = DB::table('libros')->where('ISBN', $isbn)->first();
+         $libro = DB::table('libros')->where('id', $isbn)->first();
         
          if (!$libro) {
          return response()->json(['message' => 'Libro no encontrado'], 404);
          }
         
-         DB::table('libros')->where('ISBN', $isbn)->delete();
+         DB::table('libros')->where('id', $isbn)->delete();
         
          return response()->json(['message' => 'Libro eliminado'], 200);
          }
@@ -78,13 +77,13 @@ class LibroController extends Controller
          public function crearLibro(Request $request)
          {
          $values = [
-         'ISBN' => $request->input('ISBN'),
-         'Titulo' => $request->input('Titulo'),
-         'Autor' => $request->input('Autor'),
-         'Editorial' => $request->input('Editorial'),
-         'AnioPublicacion' => $request->input('AnioPublicacion'),
-         'CantidadTotal' => $request->input('CantidadTotal'),
-         'CantidadDisponible' => $request->input('CantidadDisponible'),
+          //'id' => $request->input('id'),
+         'titulo' => $request->input('titulo'),
+         'autor' => $request->input('autor'),
+         'editorial' => $request->input('editorial'),
+         'anioPublicacion' => $request->input('anioPublicacion'),
+         'cantidadTotal' => $request->input('cantidadTotal'),
+         'cantidadDisponible' => $request->input('cantidadDisponible'),
          ];
         
          DB::table('libros')->insert($values);
