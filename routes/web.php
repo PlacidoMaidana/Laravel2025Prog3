@@ -24,5 +24,17 @@ Route::get('/vista2/{nombre}', function ($nombre) {
 });
 
 
+Route::get('/web_libros', "App\Http\Controllers\Libros_webController@index");
+Route::get('/ver_libro/{id}', "App\Http\Controllers\Libros_webController@show");
+
+
+
+
+
+Route::get('/nueva_v/{nombre}', function ($nombre) {
+    return view('vista_nueva',['nombre'=>$nombre]);
+});
+
+
 
 Route::get('/vista3/{edad}', [App\Http\Controllers\tablasController::class, 'index']);
